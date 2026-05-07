@@ -1,0 +1,156 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.hero {
+    position: relative;
+    height: 100vh;
+    background: url('/images/mobil.png') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* overlay gelap transparan */
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.3);
+}
+
+/* isi tengah */
+.content {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.btn-login {
+    background-color: #ff5a5f; /* warna merah soft */
+    color: white;
+    padding: 15px 40px; /* bikin lebih besar */
+    font-size: 20px; /* teks lebih besar */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-login:hover {
+    background-color: #e0484d; /* lebih gelap saat hover */
+}
+
+.btn-login:hover {
+    background: #e04a4a;
+}
+
+.text {
+    font-size: 24px;
+    font-weight: 500;
+}
+
+/* halaman login */
+.login-page {
+    height: 100vh;
+    background: url('/images/mobil.png') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-box {
+    width: 400px;
+    background: rgba(255,255,255,0.9);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.login-box h2 {
+    color: red;
+    margin-bottom: 20px;
+}
+
+.login-box label {
+    display: block;
+    text-align: left;
+    margin-top: 10px;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    margin-top: 5px;
+}
+
+.forgot {
+    text-align: right;
+    margin-top: 5px;
+}
+
+.forgot a {
+    color: red;
+    font-size: 12px;
+}
+
+.divider {
+    margin: 15px 0;
+}
+
+.signup {
+    display: block;
+    margin-top: 10px;
+    color: red;
+}
+
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background: #f8f8f8;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff5a5f;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: black;
+    position: relative;
+}
+
+/* garis bawah saat aktif */
+.menu li a.active,
+.menu li a:hover {
+    border-bottom: 2px solid #ff5a5f;
+}
+
+/* tombol login kanan */
+.btn-nav {
+    background: #ff5a5f;
+    color: white;
+    padding: 8px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+}
+
+/* ACTIVE LOGIN */
+.btn-nav.active {
+    background: #e0484d;
+}
