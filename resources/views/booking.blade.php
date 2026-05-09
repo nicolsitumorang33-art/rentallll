@@ -15,8 +15,8 @@
 <body class="font-[Poppins] bg-gray-50">
 
     <!-- NAVBAR -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm" x-data="{ open: false }">
-        <div class="max-w-7xl mx-auto px-5 py-4 flex justify-between items-center">
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm border-t-4 border-[#8B0000]" x-data="{ open: false }">
+        <div class="px-[5%] h-[70px] flex justify-between items-center">
             <a href="{{ url('/') }}" class="text-2xl font-extrabold text-red-600">RenMobil</a>
             <div class="hidden md:flex items-center gap-7">
                 <a href="{{ url('/') }}" class="text-gray-700 hover:text-red-600 font-medium transition">Beranda</a>
@@ -38,7 +38,7 @@
                 <span class="w-6 h-0.5 bg-gray-800 rounded"></span>
             </button>
         </div>
-        <div x-show="open" @click.away="open = false" x-cloak class="md:hidden bg-white border-t shadow-lg px-5 py-4 space-y-3">
+        <div x-show="open" @click.away="open = false" x-cloak class="md:hidden bg-white border-t shadow-lg px-[5%] py-4 space-y-3">
             <a href="{{ url('/') }}" class="block text-gray-700 font-medium">Beranda</a>
             <a href="{{ url('/tentang') }}" class="block text-gray-700 font-medium">Tentang</a>
             <a href="{{ url('/mobil') }}" class="block text-gray-700 font-medium">Mobil</a>
@@ -55,8 +55,8 @@
     </nav>
 
     <!-- BOOKING FORM WITH ALPINE -->
-    <div x-data="bookingForm()" class="pt-24 pb-16 px-5">
-        <div class="max-w-5xl mx-auto">
+    <div x-data="bookingForm()" class="pt-[90px] pb-16 px-[5%]">
+        <div class="w-full px-[5%] max-w-7xl mx-auto">
 
             <!-- HEADER -->
             <div class="text-center mb-10">
@@ -359,7 +359,7 @@
     </div>
 
     <!-- FOOTER -->
-    <footer class="bg-gray-900 text-gray-400 py-8 px-5 text-center text-sm">
+    <footer class="bg-gray-900 text-gray-400 py-8 px-[5%] text-center text-sm">
         <p>&copy; {{ date('Y') }} RenMobil. All rights reserved.</p>
     </footer>
 

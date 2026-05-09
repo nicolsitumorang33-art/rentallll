@@ -55,10 +55,22 @@ Route::middleware('auth')->group(function () {
     })->name('dashboard');
 
     Route::get('/admin', function () {
-        return view('admin.dashboard');
+        $user = auth()->user();
+        $totalUsers = \App\Models\User::count();
+        $totalCars = 0; // placeholder until Car model exists
+        $totalBookings = 0; // placeholder until Booking model exists
+        $pendingBookings = 0;
+        $recentUsers = \App\Models\User::latest()->take(5)->get();
+        return view('admin.dashboard', compact('totalUsers', 'totalCars', 'totalBookings', 'pendingBookings', 'recentUsers'));
     })->middleware('role:admin|super_admin')->name('admin.dashboard');
 
     Route::get('/admin/super', function () {
-        return view('admin.super-dashboard');
+        $totalUsers = \App\Models\User::count();
+        $totalAdmins = \App\Models\User::whereIn('role', ['admin', 'super_admin'])->count();
+        $totalCars = 0;
+        $totalBookings = 0;
+        $allUsers = \App\Models\User::latest()->get();
+        $adminUsers = \App\Models\User::whereIn('role', ['admin', 'super_admin'])->latest()->get();
+        return view('admin.super-dashboard', compact('totalUsers', 'totalAdmins', 'totalCars', 'totalBookings', 'allUsers', 'adminUsers'));
     })->middleware('role:super_admin')->name('admin.super');
 });

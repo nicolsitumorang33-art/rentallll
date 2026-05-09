@@ -1,38 +1,36 @@
-@extends('layouts.admin')
+<?php $__env->startSection('title', 'Super Admin - OREEN'); ?>
+<?php $__env->startSection('page-title', 'Super Admin Dashboard'); ?>
+<?php $__env->startSection('page-desc', 'Panel kontrol penuh, ' . auth()->user()->name); ?>
 
-@section('title', 'Super Admin - OREEN')
-@section('page-title', 'Super Admin Dashboard')
-@section('page-desc', 'Panel kontrol penuh, ' . auth()->user()->name)
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 
     <!-- STATS -->
     <div class="stats-grid">
         <div class="stat-card">
             <div class="stat-icon red"><i class="fas fa-users"></i></div>
             <div>
-                <h3>{{ $totalUsers ?? 0 }}</h3>
+                <h3><?php echo e($totalUsers ?? 0); ?></h3>
                 <p>Total Pengguna</p>
             </div>
         </div>
         <div class="stat-card">
             <div class="stat-icon orange"><i class="fas fa-user-shield"></i></div>
             <div>
-                <h3>{{ $totalAdmins ?? 0 }}</h3>
+                <h3><?php echo e($totalAdmins ?? 0); ?></h3>
                 <p>Total Admin</p>
             </div>
         </div>
         <div class="stat-card">
             <div class="stat-icon blue"><i class="fas fa-car"></i></div>
             <div>
-                <h3>{{ $totalCars ?? 0 }}</h3>
+                <h3><?php echo e($totalCars ?? 0); ?></h3>
                 <p>Total Mobil</p>
             </div>
         </div>
         <div class="stat-card">
             <div class="stat-icon green"><i class="fas fa-calendar-check"></i></div>
             <div>
-                <h3>{{ $totalBookings ?? 0 }}</h3>
+                <h3><?php echo e($totalBookings ?? 0); ?></h3>
                 <p>Total Booking</p>
             </div>
         </div>
@@ -52,26 +50,26 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse($allUsers ?? [] as $user)
+                    <?php $__empty_1 = true; $__currentLoopData = $allUsers ?? []; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                     <tr>
-                        <td><strong>{{ $user->name }}</strong></td>
-                        <td>{{ $user->email }}</td>
+                        <td><strong><?php echo e($user->name); ?></strong></td>
+                        <td><?php echo e($user->email); ?></td>
                         <td>
-                            @if($user->role === 'super_admin')
+                            <?php if($user->role === 'super_admin'): ?>
                                 <span class="badge badge-super">Super Admin</span>
-                            @elseif($user->role === 'admin')
+                            <?php elseif($user->role === 'admin'): ?>
                                 <span class="badge badge-admin">Admin</span>
-                            @else
+                            <?php else: ?>
                                 <span class="badge badge-customer">Customer</span>
-                            @endif
+                            <?php endif; ?>
                         </td>
-                        <td>{{ $user->created_at->format('d M Y') }}</td>
+                        <td><?php echo e($user->created_at->format('d M Y')); ?></td>
                     </tr>
-                    @empty
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                     <tr>
                         <td colspan="4" style="text-align:center;padding:30px;color:#999">Belum ada pengguna terdaftar</td>
                     </tr>
-                    @endforelse
+                    <?php endif; ?>
                 </tbody>
             </table>
         </div>
@@ -91,24 +89,24 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse($adminUsers ?? [] as $admin)
+                    <?php $__empty_1 = true; $__currentLoopData = $adminUsers ?? []; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $admin): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                     <tr>
-                        <td><strong>{{ $admin->name }}</strong></td>
-                        <td>{{ $admin->email }}</td>
+                        <td><strong><?php echo e($admin->name); ?></strong></td>
+                        <td><?php echo e($admin->email); ?></td>
                         <td>
-                            @if($admin->role === 'super_admin')
+                            <?php if($admin->role === 'super_admin'): ?>
                                 <span class="badge badge-super">Super Admin</span>
-                            @else
+                            <?php else: ?>
                                 <span class="badge badge-admin">Admin</span>
-                            @endif
+                            <?php endif; ?>
                         </td>
                         <td>Full Access</td>
                     </tr>
-                    @empty
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                     <tr>
                         <td colspan="4" style="text-align:center;padding:30px;color:#999">Belum ada admin</td>
                     </tr>
-                    @endforelse
+                    <?php endif; ?>
                 </tbody>
             </table>
         </div>
@@ -133,4 +131,5 @@
         </div>
     </div>
 
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.admin', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\xampp\htdocs\Nicol-laravel\rentallll\resources\views/admin/super-dashboard.blade.php ENDPATH**/ ?>

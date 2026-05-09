@@ -1,38 +1,36 @@
-@extends('layouts.admin')
+<?php $__env->startSection('title', 'Dashboard Admin - OREEN'); ?>
+<?php $__env->startSection('page-title', 'Dashboard Admin'); ?>
+<?php $__env->startSection('page-desc', 'Selamat datang kembali, ' . auth()->user()->name); ?>
 
-@section('title', 'Dashboard Admin - OREEN')
-@section('page-title', 'Dashboard Admin')
-@section('page-desc', 'Selamat datang kembali, ' . auth()->user()->name)
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 
     <!-- STATS -->
     <div class="stats-grid">
         <div class="stat-card">
             <div class="stat-icon red"><i class="fas fa-users"></i></div>
             <div>
-                <h3>{{ $totalUsers ?? 0 }}</h3>
+                <h3><?php echo e($totalUsers ?? 0); ?></h3>
                 <p>Total Pengguna</p>
             </div>
         </div>
         <div class="stat-card">
             <div class="stat-icon blue"><i class="fas fa-car"></i></div>
             <div>
-                <h3>{{ $totalCars ?? 0 }}</h3>
+                <h3><?php echo e($totalCars ?? 0); ?></h3>
                 <p>Total Mobil</p>
             </div>
         </div>
         <div class="stat-card">
             <div class="stat-icon green"><i class="fas fa-calendar-check"></i></div>
             <div>
-                <h3>{{ $totalBookings ?? 0 }}</h3>
+                <h3><?php echo e($totalBookings ?? 0); ?></h3>
                 <p>Total Booking</p>
             </div>
         </div>
         <div class="stat-card">
             <div class="stat-icon orange"><i class="fas fa-clock"></i></div>
             <div>
-                <h3>{{ $pendingBookings ?? 0 }}</h3>
+                <h3><?php echo e($pendingBookings ?? 0); ?></h3>
                 <p>Booking Pending</p>
             </div>
         </div>
@@ -52,26 +50,26 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse($recentUsers ?? [] as $user)
+                    <?php $__empty_1 = true; $__currentLoopData = $recentUsers ?? []; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                     <tr>
-                        <td><strong>{{ $user->name }}</strong></td>
-                        <td>{{ $user->email }}</td>
+                        <td><strong><?php echo e($user->name); ?></strong></td>
+                        <td><?php echo e($user->email); ?></td>
                         <td>
-                            @if($user->role === 'super_admin')
+                            <?php if($user->role === 'super_admin'): ?>
                                 <span class="badge badge-super">Super Admin</span>
-                            @elseif($user->role === 'admin')
+                            <?php elseif($user->role === 'admin'): ?>
                                 <span class="badge badge-admin">Admin</span>
-                            @else
+                            <?php else: ?>
                                 <span class="badge badge-customer">Customer</span>
-                            @endif
+                            <?php endif; ?>
                         </td>
-                        <td>{{ $user->created_at->format('d M Y') }}</td>
+                        <td><?php echo e($user->created_at->format('d M Y')); ?></td>
                     </tr>
-                    @empty
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                     <tr>
                         <td colspan="4" style="text-align:center;padding:30px;color:#999">Belum ada pengguna terdaftar</td>
                     </tr>
-                    @endforelse
+                    <?php endif; ?>
                 </tbody>
             </table>
         </div>
@@ -93,4 +91,5 @@
         </div>
     </div>
 
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.admin', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\xampp\htdocs\Nicol-laravel\rentallll\resources\views/admin/dashboard.blade.php ENDPATH**/ ?>

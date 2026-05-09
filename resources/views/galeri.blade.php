@@ -1,125 +1,281 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Galeri - RenMobil</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        [x-cloak] { display: none !important; }
+        :root {
+            --primary: #e53935;
+            --primary-dark: #b71c1c;
+            --primary-light: #ff6f61;
+            --primary-soft: #ffebee;
+            --dark: #1a1a2e;
+            --dark-2: #16213e;
+            --dark-3: #0f3460;
+            --light: #ffffff;
+            --gray: #f8f9fa;
+            --gray-2: #e9ecef;
+            --text: #333333;
+            --text-light: #666666;
+            --shadow-soft: 0 4px 20px rgba(0,0,0,0.05);
+            --shadow: 0 4px 20px rgba(0,0,0,0.1);
+            --shadow-hover: 0 8px 30px rgba(0,0,0,0.15);
+            --radius: 16px;
+            --radius-sm: 12px;
+            --container: 1200px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text);
+            overflow-x: hidden;
+            background: var(--light);
+        }
+        a { text-decoration: none; }
+
+        /* NAVBAR */
+        .navbar {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            padding: 18px 5%;
+            display: flex; justify-content: space-between; align-items: center;
+            background: var(--light); box-shadow: var(--shadow-soft);
+        }
+        .navbar-logo {
+            font-size: 1.8rem; font-weight: 800; color: var(--primary);
+            letter-spacing: -0.5px;
+        }
+        .navbar-links {
+            display: flex; align-items: center; gap: 28px; list-style: none;
+        }
+        .navbar-links a {
+            color: var(--text); font-weight: 500; font-size: 0.95rem;
+            transition: color 0.3s; position: relative;
+        }
+        .navbar-links a:hover,
+        .navbar-links a.active { color: var(--primary); }
+        .navbar-links a.active::after {
+            content: ''; position: absolute; bottom: -5px; left: 0;
+            width: 100%; height: 3px; background: var(--primary); border-radius: 2px;
+        }
+        .hamburger {
+            display: none; flex-direction: column; cursor: pointer; gap: 5px;
+        }
+        .hamburger span {
+            width: 25px; height: 3px; background: var(--dark); border-radius: 2px;
+        }
+
+        /* HERO */
+        .hero-galeri {
+            position: relative;
+            min-height: 55vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: url('{{ asset("images/hero-bg.jpg") }}') center/cover no-repeat;
+            padding: 120px 5% 60px;
+        }
+        .hero-galeri::before {
+            content: '';
+            position: absolute; inset: 0;
+            background: linear-gradient(135deg, rgba(26,26,46,0.93), rgba(15,52,96,0.85));
+        }
+        .hero-galeri-content {
+            position: relative; z-index: 2; max-width: 700px;
+        }
+        .hero-galeri-content h1 {
+            font-size: 3rem; font-weight: 800; color: var(--light); margin-bottom: 15px;
+        }
+        .hero-galeri-content h1 span { color: var(--primary); }
+        .hero-galeri-content p {
+            color: rgba(255,255,255,0.75); font-size: 1.05rem;
+        }
+
+        /* SECTION */
+        .section {
+            padding: 80px 5%;
+        }
+        .section-title {
+            text-align: center; margin-bottom: 50px;
+        }
+        .section-title h2 {
+            font-size: 2rem; font-weight: 700; color: var(--dark); margin-bottom: 10px;
+        }
+        .section-title h2 span { color: var(--primary); }
+        .section-title p {
+            color: var(--text-light); font-size: 0.95rem; max-width: 600px; margin: 0 auto;
+        }
+
+        /* GALERI GRID */
+        .galeri-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            max-width: var(--container);
+            margin: 0 auto;
+        }
+        .galeri-card {
+            background: var(--light);
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            transition: all 0.3s;
+        }
+        .galeri-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+        }
+        .galeri-card-img {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s;
+        }
+        .galeri-card:hover .galeri-card-img {
+            transform: scale(1.04);
+        }
+        .galeri-card-body {
+            padding: 14px 18px 18px;
+        }
+        .galeri-card-body h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        /* FOOTER */
+        .footer {
+            background: var(--dark);
+            color: rgba(255,255,255,0.7);
+            padding: 40px 5% 25px;
+        }
+        .footer-content {
+            max-width: var(--container);
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .footer-logo {
+            font-size: 1.5rem; font-weight: 800; color: var(--primary);
+        }
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px; margin-top: 25px;
+            text-align: center; font-size: 0.85rem;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .galeri-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        }
+        @media (max-width: 768px) {
+            .hamburger { display: flex; }
+            .navbar-links {
+                position: fixed; top: 0; right: -100%; width: 280px; height: 100vh;
+                background: var(--light); flex-direction: column;
+                padding: 80px 30px 30px; transition: right 0.3s;
+                box-shadow: var(--shadow-hover);
+            }
+            .navbar-links.active { right: 0; }
+            .hero-galeri { min-height: 45vh; padding: 100px 5% 40px; }
+            .hero-galeri-content h1 { font-size: 2rem; }
+            .section { padding: 50px 5%; }
+            .section-title h2 { font-size: 1.5rem; }
+            .galeri-grid { grid-template-columns: 1fr; gap: 18px; }
+            .footer-content { flex-direction: column; gap: 15px; }
+        }
     </style>
 </head>
-<body class="font-[Poppins] bg-gray-50">
+<body>
 
     <!-- NAVBAR -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm" x-data="{ open: false }">
-        <div class="max-w-7xl mx-auto px-5 py-4 flex justify-between items-center">
-            <a href="{{ url('/') }}" class="text-2xl font-extrabold text-red-600">RenMobil</a>
-            <div class="hidden md:flex items-center gap-7">
-                <a href="{{ url('/') }}" class="text-gray-700 hover:text-red-600 font-medium transition">Beranda</a>
-                <a href="{{ url('/tentang') }}" class="text-gray-700 hover:text-red-600 font-medium transition">Tentang</a>
-                <a href="{{ url('/mobil') }}" class="text-gray-700 hover:text-red-600 font-medium transition">Mobil</a>
-                <a href="{{ url('/galeri') }}" class="text-red-600 font-semibold relative after:absolute after:bottom-[-6px] after:left-0 after:w-full after:h-[3px] after:bg-red-600 after:rounded">Galeri</a>
-                <a href="{{ url('/layanan') }}" class="text-gray-700 hover:text-red-600 font-medium transition">Layanan</a>
-                <a href="{{ url('/syarat') }}" class="text-gray-700 hover:text-red-600 font-medium transition">S&K</a>
-                <a href="{{ url('/kontak') }}" class="text-gray-700 hover:text-red-600 font-medium transition">Kontak Kami</a>
-
-                <form method="POST" action="{{ route('logout') }}" class="inline">
+    <nav class="navbar">
+        <a href="{{ url('/') }}" class="navbar-logo">RenMobil</a>
+        <ul class="navbar-links" id="navLinks">
+            <li><a href="{{ url('/') }}">Beranda</a></li>
+            <li><a href="{{ url('/tentang') }}">Tentang</a></li>
+            <li><a href="{{ url('/mobil') }}">Mobil</a></li>
+            <li><a href="{{ url('/galeri') }}" class="active">Galeri</a></li>
+            <li><a href="{{ url('/layanan') }}">Layanan</a></li>
+            <li><a href="{{ url('/syarat') }}">S&K</a></li>
+            <li><a href="{{ url('/kontak') }}">Kontak Kami</a></li>
+            <li>
+                <form method="POST" action="{{ route('logout') }}" class="inline" style="display:inline">
                     @csrf
-                    <button type="submit" class="bg-gray-700 text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-800 transition">Logout</button>
+                    <button type="submit" style="background:#374151;color:#fff;border:none;padding:8px 24px;border-radius:50px;font-weight:600;font-family:'Poppins',sans-serif;font-size:0.85rem;cursor:pointer">Logout</button>
                 </form>
-            </div>
-            <button @click="open = !open" class="md:hidden flex flex-col gap-1.5">
-                <span class="w-6 h-0.5 bg-gray-800 rounded"></span>
-                <span class="w-6 h-0.5 bg-gray-800 rounded"></span>
-                <span class="w-6 h-0.5 bg-gray-800 rounded"></span>
-            </button>
-        </div>
-        <div x-show="open" @click.away="open = false" x-cloak class="md:hidden bg-white border-t shadow-lg px-5 py-4 space-y-3">
-            <a href="{{ url('/') }}" class="block text-gray-700 font-medium">Beranda</a>
-            <a href="{{ url('/tentang') }}" class="block text-gray-700 font-medium">Tentang</a>
-            <a href="{{ url('/mobil') }}" class="block text-gray-700 font-medium">Mobil</a>
-            <a href="{{ url('/galeri') }}" class="block text-red-600 font-semibold">Galeri</a>
-            <a href="{{ url('/layanan') }}" class="block text-gray-700 font-medium">Layanan</a>
-            <a href="{{ url('/syarat') }}" class="block text-gray-700 font-medium">S&K</a>
-            <a href="{{ url('/kontak') }}" class="block text-gray-700 font-medium">Kontak Kami</a>
-
-            <form method="POST" action="{{ route('logout') }}">
-                @csrf
-                <button type="submit" class="block w-full text-left bg-gray-700 text-white px-4 py-2 rounded-full font-semibold">Logout</button>
-            </form>
+            </li>
+        </ul>
+        <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
         </div>
     </nav>
 
     <!-- HERO -->
-    <section class="relative py-28 px-5 bg-gradient-to-br from-gray-900 to-blue-900 text-center">
-        <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-3">Galeri <span class="text-red-500">Perjalanan</span></h1>
-        <p class="text-gray-300 text-lg max-w-xl mx-auto">Momen-momen perjalanan bersama pelanggan kami</p>
+    <section class="hero-galeri">
+        <div class="hero-galeri-content">
+            <h1>Galeri <span>Kami</span></h1>
+            <p>Momen terbaik perjalanan bersama pelanggan setia RenMobil</p>
+        </div>
     </section>
 
-    <!-- GALERI GRID -->
-    <section class="py-16 px-5">
-        <div class="max-w-6xl mx-auto">
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                <div class="rounded-2xl overflow-hidden group relative aspect-[4/3]">
-                    <img src="{{ asset('images/gallery-1.jpg') }}" alt="Trip 1" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                    <div class="absolute inset-0 bg-red-600/0 group-hover:bg-red-600/30 transition-all duration-300"></div>
-                </div>
-                <div class="rounded-2xl overflow-hidden group relative aspect-[4/3]">
-                    <img src="{{ asset('images/gallery-2.jpg') }}" alt="Trip 2" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                    <div class="absolute inset-0 bg-red-600/0 group-hover:bg-red-600/30 transition-all duration-300"></div>
-                </div>
-                <div class="rounded-2xl overflow-hidden group relative aspect-[4/3]">
-                    <img src="{{ asset('images/gallery-3.jpg') }}" alt="Trip 3" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                    <div class="absolute inset-0 bg-red-600/0 group-hover:bg-red-600/30 transition-all duration-300"></div>
-                </div>
-                <div class="rounded-2xl overflow-hidden group relative aspect-[4/3]">
-                    <img src="{{ asset('images/gallery-4.jpg') }}" alt="Trip 4" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                    <div class="absolute inset-0 bg-red-600/0 group-hover:bg-red-600/30 transition-all duration-300"></div>
-                </div>
-                <div class="rounded-2xl overflow-hidden group relative aspect-[4/3]">
-                    <img src="{{ asset('images/gallery-5.jpg') }}" alt="Trip 5" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                    <div class="absolute inset-0 bg-red-600/0 group-hover:bg-red-600/30 transition-all duration-300"></div>
-                </div>
-                <div class="rounded-2xl overflow-hidden group relative aspect-[4/3]">
-                    <img src="{{ asset('images/gallery-6.jpg') }}" alt="Trip 6" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                    <div class="absolute inset-0 bg-red-600/0 group-hover:bg-red-600/30 transition-all duration-300"></div>
-                </div>
-                <div class="rounded-2xl overflow-hidden group relative aspect-[4/3]">
-                    <img src="{{ asset('images/gallery-7.jpg') }}" alt="Trip 7" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                    <div class="absolute inset-0 bg-red-600/0 group-hover:bg-red-600/30 transition-all duration-300"></div>
-                </div>
-                <div class="rounded-2xl overflow-hidden group relative aspect-[4/3]">
-                    <img src="{{ asset('images/gallery-8.jpg') }}" alt="Trip 8" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                    <div class="absolute inset-0 bg-red-600/0 group-hover:bg-red-600/30 transition-all duration-300"></div>
-                </div>
-                <div class="rounded-2xl overflow-hidden group relative aspect-[4/3]">
-                    <img src="{{ asset('images/gallery-9.jpg') }}" alt="Trip 9" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                    <div class="absolute inset-0 bg-red-600/0 group-hover:bg-red-600/30 transition-all duration-300"></div>
-                </div>
-                <div class="rounded-2xl overflow-hidden group relative aspect-[4/3]">
-                    <img src="{{ asset('images/gallery-10.jpg') }}" alt="Trip 10" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                    <div class="absolute inset-0 bg-red-600/0 group-hover:bg-red-600/30 transition-all duration-300"></div>
-                </div>
-                <div class="rounded-2xl overflow-hidden group relative aspect-[4/3]">
-                    <img src="{{ asset('images/gallery-11.jpg') }}" alt="Trip 11" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                    <div class="absolute inset-0 bg-red-600/0 group-hover:bg-red-600/30 transition-all duration-300"></div>
-                </div>
-                <div class="rounded-2xl overflow-hidden group relative aspect-[4/3]">
-                    <img src="{{ asset('images/gallery-12.jpg') }}" alt="Trip 12" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                    <div class="absolute inset-0 bg-red-600/0 group-hover:bg-red-600/30 transition-all duration-300"></div>
-                </div>
+    <!-- GALERI -->
+    <section class="section">
+        <div class="section-title">
+            <h2>Galeri <span>Perjalanan</span></h2>
+            <p>Dokumentasi aktivitas dan momen kebersamaan dalam setiap perjalanan bersama RenMobil</p>
+        </div>
+        <div class="galeri-grid">
+            <div class="galeri-card">
+                <img src="{{ asset('images/gallery-1.jpg') }}" alt="Pelanggan di mobil" class="galeri-card-img">
+                <div class="galeri-card-body"><h3>Pelanggan di Mobil</h3></div>
+            </div>
+            <div class="galeri-card">
+                <img src="{{ asset('images/gallery-2.jpg') }}" alt="Serah terima mobil" class="galeri-card-img">
+                <div class="galeri-card-body"><h3>Serah Terima Mobil</h3></div>
+            </div>
+            <div class="galeri-card">
+                <img src="{{ asset('images/gallery-3.jpg') }}" alt="Tim rental" class="galeri-card-img">
+                <div class="galeri-card-body"><h3>Tim Rental</h3></div>
+            </div>
+            <div class="galeri-card">
+                <img src="{{ asset('images/gallery-4.jpg') }}" alt="Perjalanan keluarga" class="galeri-card-img">
+                <div class="galeri-card-body"><h3>Perjalanan Keluarga</h3></div>
+            </div>
+            <div class="galeri-card">
+                <img src="{{ asset('images/gallery-5.jpg') }}" alt="Driver profesional" class="galeri-card-img">
+                <div class="galeri-card-body"><h3>Driver Profesional</h3></div>
+            </div>
+            <div class="galeri-card">
+                <img src="{{ asset('images/gallery-6.jpg') }}" alt="Aktivitas rental" class="galeri-card-img">
+                <div class="galeri-card-body"><h3>Aktivitas Rental</h3></div>
             </div>
         </div>
     </section>
 
     <!-- FOOTER -->
-    <footer class="bg-gray-900 text-gray-400 py-8 px-5 text-center text-sm">
-        <p>&copy; {{ date('Y') }} RenMobil. All rights reserved.</p>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">RenMobil</div>
+            <p style="font-size:0.9rem">Kepuasan Anda adalah prioritas kami</p>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; {{ date('Y') }} RenMobil. All rights reserved.</p>
+        </div>
     </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+    </script>
 
 </body>
 </html>

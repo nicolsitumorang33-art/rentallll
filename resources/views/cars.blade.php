@@ -204,8 +204,7 @@
         }
 
         .car-list-container {
-            max-width: var(--container);
-            margin: 0 auto;
+            width: 100%;
         }
 
         .car-list-header {
@@ -360,8 +359,7 @@
         }
 
         .footer-content {
-            max-width: var(--container);
-            margin: 0 auto;
+            width: 100%;
             display: flex;
             justify-content: space-between;
             align-items: center;
