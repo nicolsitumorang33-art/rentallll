@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Booking Mobil - RenMobil</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <?php echo app('Illuminate\Foundation\Vite')(['resources/css/app.css', 'resources/js/app.js']); ?>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -16,14 +16,14 @@
 
     <nav class="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm border-t-4 border-[#8B0000]" x-data="{ open: false }">
         <div class="max-w-6xl mx-auto px-6 h-[70px] flex justify-between items-center">
-            <a href="{{ url('/') }}" class="text-2xl font-extrabold text-red-600">RenMobil</a>
+            <a href="<?php echo e(url('/')); ?>" class="text-2xl font-extrabold text-red-600">RenMobil</a>
             <div class="hidden md:flex items-center gap-7">
-                <a href="{{ url('/') }}" class="text-gray-700 hover:text-red-600 font-medium transition">Beranda</a>
-                <a href="{{ url('/mobil') }}" class="text-gray-700 hover:text-red-600 font-medium transition">Mobil</a>
-                <a href="{{ url('/kontak') }}" class="text-gray-700 hover:text-red-600 font-medium transition">Kontak</a>
+                <a href="<?php echo e(url('/')); ?>" class="text-gray-700 hover:text-red-600 font-medium transition">Beranda</a>
+                <a href="<?php echo e(url('/mobil')); ?>" class="text-gray-700 hover:text-red-600 font-medium transition">Mobil</a>
+                <a href="<?php echo e(url('/kontak')); ?>" class="text-gray-700 hover:text-red-600 font-medium transition">Kontak</a>
 
-                <form method="POST" action="{{ route('logout') }}" class="inline">
-                    @csrf
+                <form method="POST" action="<?php echo e(route('logout')); ?>" class="inline">
+                    <?php echo csrf_field(); ?>
                     <button type="submit" class="bg-gray-700 text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-800 transition">Logout</button>
                 </form>
             </div>
@@ -34,10 +34,10 @@
             </button>
         </div>
         <div x-show="open" @click.away="open = false" x-cloak class="md:hidden bg-white border-t shadow-lg px-6 py-4 space-y-3">
-            <a href="{{ url('/') }}" class="block text-gray-700 font-medium">Beranda</a>
-            <a href="{{ url('/mobil') }}" class="block text-gray-700 font-medium">Mobil</a>
-            <form method="POST" action="{{ route('logout') }}">
-                @csrf
+            <a href="<?php echo e(url('/')); ?>" class="block text-gray-700 font-medium">Beranda</a>
+            <a href="<?php echo e(url('/mobil')); ?>" class="block text-gray-700 font-medium">Mobil</a>
+            <form method="POST" action="<?php echo e(route('logout')); ?>">
+                <?php echo csrf_field(); ?>
                 <button type="submit" class="block w-full text-left bg-gray-700 text-white px-4 py-2 rounded-full font-semibold">Logout</button>
             </form>
         </div>
@@ -73,7 +73,7 @@
                 <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
                     <div class="flex flex-col items-center text-center">
                         <div class="w-full max-w-[300px] h-40 flex items-center justify-center mb-4">
-                            <img src="{{ asset('images/car-avanza.jpg') }}" alt="Toyota Avanza" class="max-h-full max-w-full object-contain">
+                            <img src="<?php echo e(asset('images/car-avanza.jpg')); ?>" alt="Toyota Avanza" class="max-h-full max-w-full object-contain">
                         </div>
                         <h2 class="text-xl font-bold text-gray-800">Toyota Avanza</h2>
                         <div class="flex items-center gap-1 mt-1 text-sm justify-center">
@@ -198,7 +198,7 @@
                         </div>
                         <h3 class="text-xl font-bold text-gray-800 mb-2">Pesanan Terkirim!</h3>
                         <p class="text-sm text-gray-500 mb-6">Kode Booking Anda: <span class="font-bold text-red-600">RM-202605</span></p>
-                        <a href="{{ url('/') }}" class="inline-block bg-gray-800 text-white px-8 py-3 rounded-xl font-bold text-sm">Kembali Ke Beranda</a>
+                        <a href="<?php echo e(url('/')); ?>" class="inline-block bg-gray-800 text-white px-8 py-3 rounded-xl font-bold text-sm">Kembali Ke Beranda</a>
                     </div>
                 </div>
 
@@ -221,7 +221,7 @@
     </div>
 
     <footer class="bg-white border-t border-gray-100 py-8 text-center text-xs text-gray-400">
-        <p>&copy; {{ date('Y') }} RenMobil Indonesia.</p>
+        <p>&copy; <?php echo e(date('Y')); ?> RenMobil Indonesia.</p>
     </footer>
 
     <script>
@@ -268,4 +268,4 @@
         }
     </script>
 </body>
-</html>
+</html><?php /**PATH C:\xampp\htdocs\Nicol-laravel\rentallll\resources\views/booking.blade.php ENDPATH**/ ?>

@@ -1084,7 +1084,7 @@
                     </div>
                     <div>
                         <h4>Alamat</h4>
-                        <p>Jl. Contoh No. 123, Jakarta Selatan, Indonesia</p>
+                        <p>Jl.Berdikari,Padang Bulan Selayang II</p>
                     </div>
                 </div>
 
@@ -1094,7 +1094,7 @@
                     </div>
                     <div>
                         <h4>Email</h4>
-                        <p>info@renmobil.com</p>
+                        <p>info@rennmobil.com</p>
                     </div>
                 </div>
 
@@ -1104,7 +1104,7 @@
                     </div>
                     <div>
                         <h4>Telepon</h4>
-                        <p>+62 812-3456-7890</p>
+                        <p>+62 813-3804-4279</p>
                     </div>
                 </div>
 
@@ -1114,13 +1114,13 @@
                     </div>
                     <div>
                         <h4>WhatsApp</h4>
-                        <p>+62 812-3456-7890</p>
+                        <p>+62 813-3804-4279</p>
                     </div>
                 </div>
             </div>
 
             <div class="kontak-map">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126920.26149896694!2d106.6894!3d-6.2297!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3e945e34b9d%3A0x5371bf0fdad786a2!2sJakarta%2C+Indonesia!5e0!3m2!1sen!2s!4v1234567890" allowfullscreen loading="lazy"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3982.1360863420605!2d98.64885307423755!3d3.556104750517775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30312fe6f7a0c5d9%3A0x8c07e4ad80b29ab7!2sGEArental!5e0!3m2!1sid!2sid!4v1778380752137!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
     </section>

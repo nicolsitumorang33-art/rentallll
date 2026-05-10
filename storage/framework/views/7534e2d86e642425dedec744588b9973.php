@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="<?php echo e(str_replace('_', '-', app()->getLocale())); ?>">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -82,7 +82,7 @@
             min-height: 55vh;
             display: flex;
             align-items: center;
-            background: url("{{ asset('images/hero-bg.jpg') }}") center/cover no-repeat;
+            background: url("<?php echo e(asset('images/hero-bg.jpg')); ?>") center/cover no-repeat;
             padding: 120px 5% 60px;
         }
         .hero-layanan::before {
@@ -223,18 +223,18 @@
 
     <!-- NAVBAR -->
     <nav class="navbar">
-        <a href="{{ url('/') }}" class="navbar-logo">OREEN</a>
+        <a href="<?php echo e(url('/')); ?>" class="navbar-logo">OREEN</a>
         <ul class="navbar-links" id="navLinks">
-            <li><a href="{{ url('/') }}">Beranda</a></li>
-            <li><a href="{{ url('/tentang') }}">Tentang</a></li>
-            <li><a href="{{ url('/mobil') }}">Mobil</a></li>
-            <li><a href="{{ url('/galeri') }}">Galeri</a></li>
-            <li><a href="{{ url('/layanan') }}" class="active">Layanan</a></li>
-            <li><a href="{{ url('/syarat') }}">S&K</a></li>
-            <li><a href="{{ url('/kontak') }}">Kontak Kami</a></li>
+            <li><a href="<?php echo e(url('/')); ?>">Beranda</a></li>
+            <li><a href="<?php echo e(url('/tentang')); ?>">Tentang</a></li>
+            <li><a href="<?php echo e(url('/mobil')); ?>">Mobil</a></li>
+            <li><a href="<?php echo e(url('/galeri')); ?>">Galeri</a></li>
+            <li><a href="<?php echo e(url('/layanan')); ?>" class="active">Layanan</a></li>
+            <li><a href="<?php echo e(url('/syarat')); ?>">S&K</a></li>
+            <li><a href="<?php echo e(url('/kontak')); ?>">Kontak Kami</a></li>
             <li>
-                <form method="POST" action="{{ route('logout') }}" style="display:inline">
-                    @csrf
+                <form method="POST" action="<?php echo e(route('logout')); ?>" style="display:inline">
+                    <?php echo csrf_field(); ?>
                     <button type="submit" class="btn-login">Logout</button>
                 </form>
             </li>
@@ -275,7 +275,7 @@
                 </div>
                 <h3>Sewa Mobil</h3>
                 <p>Sewa mobil lepas kunci atau dengan driver untuk perjalanan bisnis maupun wisata</p>
-                <a href="{{ url('/booking') }}" class="btn-outline">Selengkapnya</a>
+                <a href="<?php echo e(url('/booking')); ?>" class="btn-outline">Selengkapnya</a>
             </div>
             <div class="layanan-card">
                 <div class="layanan-icon">
@@ -283,7 +283,7 @@
                 </div>
                 <h3>Sewa Sopir</h3>
                 <p>Driver profesional berpengalaman siap mengantar Anda ke tujuan dengan aman</p>
-                <a href="{{ url('/booking') }}" class="btn-outline">Selengkapnya</a>
+                <a href="<?php echo e(url('/booking')); ?>" class="btn-outline">Selengkapnya</a>
             </div>
             <div class="layanan-card">
                 <div class="layanan-icon">
@@ -291,7 +291,7 @@
                 </div>
                 <h3>Rental Harian</h3>
                 <p>Paket rental harian dengan harga terjangkau untuk kebutuhan transportasi Anda</p>
-                <a href="{{ url('/booking') }}" class="btn-outline">Selengkapnya</a>
+                <a href="<?php echo e(url('/booking')); ?>" class="btn-outline">Selengkapnya</a>
             </div>
         </div>
     </section>
@@ -303,7 +303,7 @@
             <p>Kepuasan Anda adalah prioritas kami</p>
         </div>
         <div class="footer-bottom">
-            <p>&copy; {{ date('Y') }} OREEN. All rights reserved.</p>
+            <p>&copy; <?php echo e(date('Y')); ?> OREEN. All rights reserved.</p>
         </div>
     </footer>
 
@@ -314,4 +314,4 @@
     </script>
 
 </body>
-</html>
+</html><?php /**PATH C:\xampp\htdocs\Nicol-laravel\rentallll\resources\views/layanan.blade.php ENDPATH**/ ?>
