@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Kontak - OREEN</title>
+    <title>Kontak - RennMobil</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -176,20 +176,16 @@
             padding: 24px;
             box-shadow: var(--shadow-soft);
         }
-        .maps-placeholder {
-            background: var(--gray-2); border-radius: var(--radius-sm);
-            height: 200px; display: flex; align-items: center; justify-content: center;
-            color: var(--text-light); font-size: 0.9rem;
+        .maps-container {
+            width: 100%;
+            border-radius: var(--radius-sm);
+            overflow: hidden;
         }
-        .maps-placeholder i { font-size: 2rem; margin-bottom: 8px; display: block; }
-        .btn-maps {
-            display: block; width: 100%; margin-top: 14px;
-            background: var(--primary); color: var(--light);
-            padding: 11px 0; border-radius: 50px;
-            font-weight: 600; font-size: 0.85rem; font-family: 'Poppins', sans-serif;
-            text-align: center; transition: all 0.3s; border: none; cursor: pointer;
+        .maps-container iframe {
+            width: 100%;
+            height: 250px;
+            display: block;
         }
-        .btn-maps:hover { background: var(--primary-dark); transform: translateY(-1px); }
 
         /* FOOTER */
         .footer {
@@ -257,7 +253,7 @@
 
     <!-- NAVBAR -->
     <nav class="navbar">
-        <a href="<?php echo e(url('/')); ?>" class="navbar-logo">OREEN</a>
+        <a href="<?php echo e(url('/')); ?>" class="navbar-logo">Renn<span style="color:var(--primary)">Mobil</span></a>
         <ul class="navbar-links" id="navLinks">
             <li><a href="<?php echo e(url('/')); ?>">Beranda</a></li>
             <li><a href="<?php echo e(url('/tentang')); ?>">Tentang</a></li>
@@ -265,11 +261,12 @@
             <li><a href="<?php echo e(url('/galeri')); ?>">Galeri</a></li>
             <li><a href="<?php echo e(url('/layanan')); ?>">Layanan</a></li>
             <li><a href="<?php echo e(url('/syarat')); ?>">S&K</a></li>
-            <li><a href="<?php echo e(url('/kontak')); ?>" class="active">Kontak Kami</a></li>
+            <li><a href="<?php echo e(url('/kontak')); ?>" class="active">Kontak kami</a></li>
+            <li><a href="<?php echo e(url('/my-bookings')); ?>">Riwayat</a></li>
             <li>
                 <form method="POST" action="<?php echo e(route('logout')); ?>" style="display:inline">
                     <?php echo csrf_field(); ?>
-                    <button type="submit" class="btn-login">Logout</button>
+                    <button type="submit" style="background:#374151;color:#fff;border:none;padding:8px 24px;border-radius:50px;font-weight:600;font-family:'Poppins',sans-serif;font-size:0.85rem;cursor:pointer">Logout</button>
                 </form>
             </li>
         </ul>
@@ -322,14 +319,14 @@
                         <div class="info-icon"><i class="fas fa-envelope"></i></div>
                         <div class="info-text">
                             <h4>Email</h4>
-                            <p>info@oreen-rental.com</p>
+                            <p>info@rennmobil.com</p>
                         </div>
                     </div>
                     <div class="info-item">
                         <div class="info-icon"><i class="fas fa-phone"></i></div>
                         <div class="info-text">
                             <h4>Telepon</h4>
-                            <p>+62 812 3456 7890</p>
+                            <p>+62 81338044279</p>
                         </div>
                     </div>
                     <div class="info-item">
@@ -343,21 +340,15 @@
                         <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
                         <div class="info-text">
                             <h4>Alamat</h4>
-                            <p>Jl. Merdeka No. 123, Jakarta Pusat</p>
+                            <p>Jl.Berdikari,Padang Bulan Selayang II</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="maps-card">
-                    <div class="maps-placeholder">
-                        <div class="text-center">
-                            <i class="fas fa-map-marked-alt"></i>
-                            <span>Peta Lokasi</span>
-                        </div>
+                    <div class="maps-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3982.1360863420605!2d98.64885307423755!3d3.556104750517775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30312fe6f7a0c5d9%3A0x8c07e4ad80b29ab7!2sGEArental!5e0!3m2!1sid!2sid!4v1778380752137!5m2!1sid!2sid" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
-                    <a href="#" class="btn-maps">Lihat Lokasi Kantor</a>
-                </div>
-            </div>
 
         </div>
     </section>
@@ -366,7 +357,7 @@
     <footer class="footer">
         <div class="footer-grid">
             <div class="footer-brand">
-                <h3>OREEN</h3>
+                <h3>RennMobil</h3>
                 <p>Penyedia layanan rental mobil terpercaya dengan pengalaman terbaik untuk setiap perjalanan Anda.</p>
                 <div class="footer-social">
                     <a href="#"><i class="fab fa-instagram"></i></a>

@@ -1,23 +1,10 @@
-@php
-    $cars = [
-        ['name' => 'Toyota Avanza', 'desc' => '4 Pintu · 7 Penumpang · Manual', 'price' => '350.000', 'img' => 'car-avanza.jpg'],
-        ['name' => 'Mitsubishi Xpander', 'desc' => '4 Pintu · 7 Penumpang · Automatic', 'price' => '400.000', 'img' => 'car-xpander.jpg'],
-        ['name' => 'Toyota Innova', 'desc' => '4 Pintu · 7 Penumpang · Automatic', 'price' => '500.000', 'img' => 'car-innova.jpg'],
-        ['name' => 'Honda Brio', 'desc' => '4 Pintu · 5 Penumpang · Manual', 'price' => '250.000', 'img' => 'car-brio.jpg'],
-        ['name' => 'Toyota Fortuner', 'desc' => '4 Pintu · 7 Penumpang · Automatic', 'price' => '900.000', 'img' => 'car-fortuner.jpg'],
-        ['name' => 'Suzuki Ertiga', 'desc' => '4 Pintu · 7 Penumpang · Manual', 'price' => '300.000', 'img' => 'car-ertiga.jpg'],
-        ['name' => 'Isuzu Elf', 'desc' => '4 Pintu · 19 Penumpang · Manual', 'price' => '1.200.000', 'img' => 'car-elf.jpg'],
-        ['name' => 'Mitsubishi Pajero Sport', 'desc' => '4 Pintu · 7 Penumpang · Automatic', 'price' => '800.000', 'img' => 'car-pajero.jpg'],
-        ['name' => 'Daihatsu Ayla', 'desc' => '4 Pintu · 5 Penumpang · Manual', 'price' => '200.000', 'img' => 'car-ayla.jpg'],
-        ['name' => 'Daihatsu Sigra', 'desc' => '4 Pintu · 7 Penumpang · Manual', 'price' => '250.000', 'img' => 'car-sigra.jpg'],
-    ];
-@endphp
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Daftar Mobil - RenMobil</title>
+    <title>Daftar Mobil - RennMobil</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -447,7 +434,7 @@
 <body>
     <!-- NAVBAR -->
     <nav class="navbar">
-        <a href="{{ url('/') }}" class="navbar-logo">RenMobil</a>
+        <a href="{{ url('/') }}" class="navbar-logo">RennMobil</a>
         <ul class="navbar-links" id="navLinks">
             <li><a href="{{ url('/') }}">Beranda</a></li>
             <li><a href="{{ url('/tentang') }}">Tentang</a></li>
@@ -456,11 +443,11 @@
             <li><a href="{{ url('/layanan') }}">Layanan</a></li>
             <li><a href="{{ url('/syarat') }}">S&K</a></li>
             <li><a href="{{ url('/kontak') }}">Kontak Kami</a></li>
-
+            <li><a href="{{ url('/my-bookings') }}">Riwayat</a></li>
             <li>
-                <form method="POST" action="{{ route('logout') }}" class="inline">
+                <form method="POST" action="{{ route('logout') }}" style="display:inline">
                     @csrf
-                    <button type="submit" class="btn-login" style="background:#374151;">Logout</button>
+                    <button type="submit" style="background:#374151;color:#fff;border:none;padding:8px 24px;border-radius:50px;font-weight:600;font-family:'Poppins',sans-serif;font-size:0.85rem;cursor:pointer">Logout</button>
                 </form>
             </li>
         </ul>
@@ -494,10 +481,10 @@
             <div id="carList">
                 @foreach($cars as $car)
                 <div class="car-card" data-name="{{ strtolower($car['name']) }}">
-                    <img src="{{ asset('images/' . $car['img']) }}" alt="{{ $car['name'] }}" class="car-card-img">
+                    <img src="{{ asset('images/' . $car['image']) }}" alt="{{ $car['name'] }}" class="car-card-img">
                     <div class="car-card-info">
                         <h3>{{ $car['name'] }}</h3>
-                        <p class="desc">{{ $car['desc'] }}</p>
+                        <p class="desc">{{ $car['description'] }}</p>
                         <div class="car-specs">
                             <span class="car-spec"><i class="fas fa-users"></i> Tersedia</span>
                             <span class="car-spec"><i class="fas fa-gas-pump"></i> BBM Iririt</span>
@@ -505,8 +492,8 @@
                         </div>
                     </div>
                     <div class="car-card-action">
-                        <div class="car-price">Rp {{ $car['price'] }} <small>/Hari</small></div>
-                        <a href="{{ url('/booking') }}" class="btn-order">
+                        <div class="car-price">Rp {{ number_format($car['price'], 0, ',', '.') }} <small>/Hari</small></div>
+                        <a href="{{ url('/booking?car_id=' . $car['id']) }}" class="btn-order">
                             Sewa Sekarang <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
@@ -524,11 +511,11 @@
     <!-- FOOTER -->
     <footer class="footer">
         <div class="footer-content">
-            <div class="footer-logo">RenMobil</div>
+            <div class="footer-logo">RennMobil</div>
             <p style="font-size: 0.9rem;">Penyedia jasa rental mobil terpercaya</p>
         </div>
         <div class="footer-bottom">
-            <p>&copy; {{ date('Y') }} RenMobil. All rights reserved.</p>
+            <p>&copy; {{ date('Y') }} RennMobil. All rights reserved.</p>
         </div>
     </footer>
 

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>RenMobil - Rental Mobil</title>
+    <title>RennMobil - Rental Mobil</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -817,7 +817,7 @@
 <body>
     <!-- NAVBAR -->
     <nav class="navbar" id="navbar">
-        <a href="#" class="navbar-logo">Ren<span>Mobil</span></a>
+        <a href="#" class="navbar-logo">Renn<span>Mobil</span></a>
         <ul class="navbar-links" id="navLinks">
             <li><a href="{{ url('/') }}" class="active">Beranda</a></li>
             <li><a href="{{ url('/tentang') }}">Tentang</a></li>
@@ -826,10 +826,11 @@
             <li><a href="{{ url('/layanan') }}">Layanan</a></li>
             <li><a href="{{ url('/syarat') }}">S&K</a></li>
             <li><a href="{{ url('/kontak') }}">Kontak Kami</a></li>
+            <li><a href="{{ url('/my-bookings') }}">Riwayat</a></li>
             <li>
-                <form method="POST" action="{{ route('logout') }}" class="inline">
+                <form method="POST" action="{{ route('logout') }}" style="display:inline">
                     @csrf
-                    <button type="submit" class="bg-gray-700 text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-800 transition">Logout</button>
+                    <button type="submit" style="background:#374151;color:#fff;border:none;padding:8px 24px;border-radius:50px;font-weight:600;font-family:'Poppins',sans-serif;font-size:0.85rem;cursor:pointer">Logout</button>
                 </form>
             </li>
         </ul>
@@ -843,7 +844,7 @@
     <!-- HERO SECTION -->
     <section class="hero" id="home">
         <div class="hero-content">
-            <h1>Perjalanan lebih menyenangkan <br>bersama <span>RenMobil</span></h1>
+            <h1>Perjalanan lebih menyenangkan <br>bersama <span>RennMobil</span></h1>
             <p>Sewa mobil terpercaya dengan harga terjangkau, unit terawat, dan pelayanan profesional</p>
 
             <form class="search-form">
@@ -1012,7 +1013,7 @@
         </div>
 
         <div class="tentang-content">
-            <p>RenMobil adalah penyedia jasa rental mobil terpercaya yang telah melayani ribuan pelanggan di seluruh Indonesia. Dengan armada kendaraan yang terawat dan berkualitas, kami berkomitmen memberikan pengalaman perjalanan terbaik.</p>
+            <p>RennMobil adalah penyedia jasa rental mobil terpercaya yang telah melayani ribuan pelanggan di seluruh Indonesia. Dengan armada kendaraan yang terawat dan berkualitas, kami berkomitmen memberikan pengalaman perjalanan terbaik.</p>
             <p>Kami menyediakan berbagai jenis mobil mulai dari MPV, SUV, Sedan, hingga minibus untuk memenuhi kebutuhan transportasi Anda, baik untuk perjalanan bisnis, wisata, maupun acara spesial.</p>
 
             <div class="tentang-stats">
@@ -1108,7 +1109,8 @@
                     </div>
                 </div>
 
-                <div class="kontak-item">
+                <a href="https://wa.me/6281338044279" style="text-decoration:none;color:inherit">
+                <div class="kontak-item" style="cursor:pointer">
                     <div class="kontak-item-icon">
                         <i class="fab fa-whatsapp"></i>
                     </div>
@@ -1117,6 +1119,7 @@
                         <p>+62 813-3804-4279</p>
                     </div>
                 </div>
+                </a>
             </div>
 
             <div class="kontak-map">
@@ -1129,7 +1132,7 @@
     <footer class="footer">
         <div class="footer-grid">
             <div class="footer-about">
-                <h3>Ren<span>Mobil</span></h3>
+                <h3>Renn<span>Mobil</span></h3>
                 <p>Penyedia jasa rental mobil terpercaya dengan armada berkualitas dan pelayanan profesional untuk perjalanan Anda.</p>
                 <div class="footer-social">
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -1170,7 +1173,7 @@
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; {{ date('Y') }} RenMobil. All rights reserved.</p>
+            <p>&copy; {{ date('Y') }} RennMobil. All rights reserved.</p>
         </div>
     </footer>
 

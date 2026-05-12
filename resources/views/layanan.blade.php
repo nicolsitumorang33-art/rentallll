@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Layanan - OREEN</title>
+    <title>Layanan - RennMobil</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -116,70 +116,76 @@
             color: var(--text-light); font-size: 0.95rem; max-width: 600px; margin: 0 auto; line-height: 1.7;
         }
 
-        /* CARD LAYANAN */
+        /* LAYANAN SECTION */
+        .layanan-section {
+            background: var(--dark);
+            position: relative;
+        }
+        .layanan-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("{{ asset('images/hero-bg.jpg') }}") center/cover no-repeat;
+            opacity: 0.1;
+        }
         .layanan-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
+            gap: 30px;
             max-width: var(--container);
             margin: 0 auto;
+            position: relative;
+            z-index: 2;
         }
         .layanan-card {
-            position: relative;
-            border-radius: var(--radius-sm);
-            overflow: hidden;
-            height: 400px;
-            box-shadow: var(--shadow-soft);
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: var(--radius);
+            padding: 40px 30px;
+            text-align: center;
             transition: all 0.3s;
         }
         .layanan-card:hover {
+            background: rgba(255,255,255,0.1);
             transform: translateY(-5px);
-            box-shadow: var(--shadow-hover);
         }
-        .layanan-card-bg {
-            width: 100%; height: 100%;
-            background-size: cover; background-position: center;
-            transition: transform 0.5s;
-        }
-        .layanan-card:hover .layanan-card-bg { transform: scale(1.05); }
-        .layanan-card-overlay {
-            position: absolute; inset: 0;
-            background: linear-gradient(to top, rgba(26,26,46,0.95) 0%, rgba(26,26,46,0.3) 100%);
-        }
-        .layanan-card-overlay.maroon {
-            background: linear-gradient(to top, rgba(183,28,28,0.95) 0%, rgba(183,28,28,0.3) 100%);
-        }
-        .layanan-card-body {
-            position: absolute; bottom: 0; left: 0; right: 0;
-            padding: 30px; text-align: center;
-        }
-        .layanan-card-body .icon {
-            width: 55px; height: 55px;
-            background: rgba(255,255,255,0.15);
-            backdrop-filter: blur(6px);
+        .layanan-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--primary);
             border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            margin: 0 auto 14px;
-            border: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 1.8rem;
+            color: var(--light);
         }
-        .layanan-card-body .icon i { color: var(--light); font-size: 1.3rem; }
-        .layanan-card-body h3 {
-            font-size: 1.1rem; font-weight: 700; color: var(--light); margin-bottom: 8px;
+        .layanan-card h3 {
+            color: var(--light);
+            font-size: 1.3rem;
+            margin-bottom: 12px;
         }
-        .layanan-card-body p {
-            color: rgba(255,255,255,0.75); font-size: 0.85rem; line-height: 1.6; margin-bottom: 16px; max-width: 280px; margin-left: auto; margin-right: auto;
+        .layanan-card p {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
         }
-        .layanan-card-body .btn-order {
+        .btn-outline {
             display: inline-block;
-            padding: 10px 28px;
+            padding: 10px 25px;
+            border: 2px solid var(--primary);
+            color: var(--primary);
             border-radius: 50px;
-            font-size: 0.85rem; font-weight: 600; font-family: 'Poppins', sans-serif;
-            cursor: pointer; transition: all 0.3s; border: none;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s;
         }
-        .btn-order-primary { background: var(--primary); color: var(--light); }
-        .btn-order-primary:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 4px 15px rgba(229,57,53,0.4); }
-        .btn-order-white { background: rgba(255,255,255,0.9); color: var(--text); border: 1px solid var(--gray-2); }
-        .btn-order-white:hover { background: var(--light); border-color: #bbb; transform: translateY(-2px); }
+        .btn-outline:hover {
+            background: var(--primary);
+            color: var(--light);
+        }
 
         /* FOOTER */
         .footer {
@@ -214,7 +220,6 @@
             .section { padding: 50px 5%; }
             .section-title h2 { font-size: 1.5rem; }
             .layanan-grid { grid-template-columns: 1fr; gap: 18px; }
-            .layanan-card { height: 360px; }
             .footer-content { flex-direction: column; gap: 15px; text-align: center; }
         }
     </style>
@@ -223,7 +228,7 @@
 
     <!-- NAVBAR -->
     <nav class="navbar">
-        <a href="{{ url('/') }}" class="navbar-logo">OREEN</a>
+        <a href="{{ url('/') }}" class="navbar-logo">Renn<span style="color:var(--primary)">Mobil</span></a>
         <ul class="navbar-links" id="navLinks">
             <li><a href="{{ url('/') }}">Beranda</a></li>
             <li><a href="{{ url('/tentang') }}">Tentang</a></li>
@@ -232,10 +237,11 @@
             <li><a href="{{ url('/layanan') }}" class="active">Layanan</a></li>
             <li><a href="{{ url('/syarat') }}">S&K</a></li>
             <li><a href="{{ url('/kontak') }}">Kontak Kami</a></li>
+            <li><a href="{{ url('/my-bookings') }}">Riwayat</a></li>
             <li>
                 <form method="POST" action="{{ route('logout') }}" style="display:inline">
                     @csrf
-                    <button type="submit" class="btn-login">Logout</button>
+                    <button type="submit" style="background:#374151;color:#fff;border:none;padding:8px 24px;border-radius:50px;font-weight:600;font-family:'Poppins',sans-serif;font-size:0.85rem;cursor:pointer">Logout</button>
                 </form>
             </li>
         </ul>
@@ -252,20 +258,11 @@
         </div>
     </section>
 
-    <!-- INTRO -->
-    <section class="section" style="padding-top:50px;padding-bottom:30px">
-        <div class="section-title">
-            <h2>Layanan <span>Kami</span></h2>
-            <p>Layanan kami tidak hanya menyediakan sewa mobil, tetapi juga menghadirkan sopir profesional serta paket perjalanan untuk mendukung kebutuhan perjalanan Anda.</p>
-        </div>
-    </section>
-
-    <!-- CARDS -->
-     <!-- LAYANAN -->
+    <!-- LAYANAN CARDS -->
     <section class="section layanan-section" id="layanan">
         <div class="section-title">
             <h2 style="color: #fff;">Layanan <span>Kami</span></h2>
-            <p style="color: rgba(255,255,255,0.6);">Berbagai pilihan layanan rental untuk kebutuhan Anda</p>
+            <p style="color: rgba(255,255,255,0.6);">Berbagai pilihan layanan rental untuk kebutuhan perjalanan Anda</p>
         </div>
 
         <div class="layanan-grid">
@@ -299,11 +296,11 @@
     <!-- FOOTER -->
     <footer class="footer">
         <div class="footer-content">
-            <div class="footer-logo">OREEN</div>
+            <div class="footer-logo">RennMobil</div>
             <p>Kepuasan Anda adalah prioritas kami</p>
         </div>
         <div class="footer-bottom">
-            <p>&copy; {{ date('Y') }} OREEN. All rights reserved.</p>
+            <p>&copy; {{ date('Y') }} RennMobil. All rights reserved.</p>
         </div>
     </footer>
 

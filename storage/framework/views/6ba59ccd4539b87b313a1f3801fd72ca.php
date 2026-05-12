@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Syarat & Ketentuan - OREEN</title>
+    <title>Syarat & Ketentuan - RennMobil</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -219,7 +219,7 @@
 
     <!-- NAVBAR -->
     <nav class="navbar">
-        <a href="<?php echo e(url('/')); ?>" class="navbar-logo">OREEN</a>
+        <a href="<?php echo e(url('/')); ?>" class="navbar-logo">RennMobil</a>
         <ul class="navbar-links" id="navLinks">
             <li><a href="<?php echo e(url('/')); ?>">Beranda</a></li>
             <li><a href="<?php echo e(url('/tentang')); ?>">Tentang</a></li>
@@ -244,7 +244,7 @@
     <section class="hero-syarat">
         <div class="hero-syarat-content">
             <h1>Syarat & <span>Ketentuan</span></h1>
-            <p>Ketentuan yang berlaku dalam penggunaan layanan sewa mobil di OREEN</p>
+            <p>Ketentuan yang berlaku dalam penggunaan layanan sewa mobil di RennMobil</p>
         </div>
     </section>
 
@@ -255,7 +255,7 @@
                 <div class="desc-card-icon"><i class="fas fa-file-contract"></i></div>
                 <div>
                     <h2>Penjelasan Umum</h2>
-                    <p>Dengan menggunakan layanan OREEN, Anda dianggap telah membaca, memahami, dan menyetujui seluruh syarat dan ketentuan yang berlaku. Ketentuan ini mengatur hubungan hukum antara penyewa dan OREEN sebagai penyedia layanan rental kendaraan. Kami berhak memperbarui ketentuan ini sewaktu-waktu tanpa pemberitahuan sebelumnya.</p>
+                    <p>Dengan menggunakan layanan RennMobil, Anda dianggap telah membaca, memahami, dan menyetujui seluruh syarat dan ketentuan yang berlaku. Ketentuan ini mengatur hubungan hukum antara penyewa dan RennMobil sebagai penyedia layanan rental kendaraan. Kami berhak memperbarui ketentuan ini sewaktu-waktu tanpa pemberitahuan sebelumnya.</p>
                 </div>
             </div>
         </div>
@@ -278,7 +278,7 @@
                     </button>
                     <div x-show="active === 1" x-collapse x-cloak class="accordion-body">
                         <ul>
-                            <li>Pemesanan dapat dilakukan melalui website, aplikasi, atau langsung ke kantor OREEN</li>
+                            <li>Pemesanan dapat dilakukan melalui website, aplikasi, atau langsung ke kantor RennMobil</li>
                             <li>Penyewa wajib mengisi data diri lengkap dan valid saat melakukan pemesanan</li>
                             <li>Pemesanan dianggap sah setelah dilakukan pembayaran uang muka (DP) minimal 30% dari total biaya</li>
                             <li>Konfirmasi pemesanan akan dikirimkan melalui email atau WhatsApp dalam waktu maksimal 2 jam</li>
@@ -319,7 +319,7 @@
                             <li>Kendaraan hanya boleh dikemudikan oleh penyewa atau orang yang ditunjuk dengan SIM berlaku</li>
                             <li>Dilarang menggunakan kendaraan untuk kegiatan ilegal atau melanggar hukum</li>
                             <li>Kendaraan tidak boleh disewakan kembali kepada pihak lain (sublet)</li>
-                            <li>Kepala keluar kota/keluar pulau wajib mendapat izin tertulis dari OREEN</li>
+                            <li>Kepala keluar kota/keluar pulau wajib mendapat izin tertulis dari RennMobil</li>
                             <li>Penyewa bertanggung jawab atas tilang dan pelanggaran lalu lintas selama masa sewa</li>
                         </ul>
                     </div>
@@ -393,9 +393,9 @@
                     <div x-show="active === 7" x-collapse x-cloak class="accordion-body">
                         <ul>
                             <li>Hal-hal yang tidak diatur dalam ketentuan ini akan dibahas secara musyawarah</li>
-                            <li>OREEN berhak menghentikan layanan jika terjadi pelanggaran ketentuan</li>
+                            <li>RennMobil berhak menghentikan layanan jika terjadi pelanggaran ketentuan</li>
                             <li>Sengketa akan diselesaikan melalui jalur hukum yang berlaku di Indonesia</li>
-                            <li>Domisili hukum berada di wilayah kantor pusat OREEN</li>
+                            <li>Domisili hukum berada di wilayah kantor pusat RennMobil</li>
                         </ul>
                     </div>
                 </div>
@@ -409,7 +409,7 @@
                         <i class="fas fa-chevron-down accordion-arrow" :class="{ 'open': active === 8 }"></i>
                     </button>
                     <div x-show="active === 8" x-collapse x-cloak class="accordion-body">
-                        <p>OREEN berhak mengubah syarat dan ketentuan ini sewaktu-waktu tanpa pemberitahuan sebelumnya. Perubahan akan efektif segera setelah dipublikasikan di website. Penyewa yang telah melakukan pemesanan setelah perubahan dianggap menyetujui ketentuan baru. Kami menyarankan untuk secara berkala memeriksa halaman ini.</p>
+                        <p>RennMobil berhak mengubah syarat dan ketentuan ini sewaktu-waktu tanpa pemberitahuan sebelumnya. Perubahan akan efektif segera setelah dipublikasikan di website. Penyewa yang telah melakukan pemesanan setelah perubahan dianggap menyetujui ketentuan baru. Kami menyarankan untuk secara berkala memeriksa halaman ini.</p>
                     </div>
                 </div>
 
@@ -434,11 +434,11 @@
     <!-- FOOTER -->
     <footer class="footer">
         <div class="footer-content">
-            <div class="footer-logo">OREEN</div>
+            <div class="footer-logo">RennMobil</div>
             <p>Kepuasan Anda adalah prioritas kami</p>
         </div>
         <div class="footer-bottom">
-            <p>&copy; <?php echo e(date('Y')); ?> OREEN. All rights reserved.</p>
+            <p>&copy; <?php echo e(date('Y')); ?> RennMobil. All rights reserved.</p>
         </div>
     </footer>
 

@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'Super Admin - OREEN')
+@section('title', 'Super Admin - RennMobil')
 @section('page-title', 'Super Admin Dashboard')
 @section('page-desc', 'Panel kontrol penuh, ' . auth()->user()->name)
 

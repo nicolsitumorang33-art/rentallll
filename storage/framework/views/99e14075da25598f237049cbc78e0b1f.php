@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Tentang Kami - RenMobil</title>
+    <title>Tentang Kami - RennMobil</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -344,9 +344,12 @@
         /* TIM KAMI */
         .tim-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 30px;
             margin-top: 50px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .tim-card {
@@ -589,7 +592,7 @@
 <body>
     <!-- NAVBAR -->
     <nav class="navbar">
-        <a href="<?php echo e(url('/')); ?>" class="navbar-logo">RenMobil</a>
+        <a href="<?php echo e(url('/')); ?>" class="navbar-logo">RennMobil</a>
         <ul class="navbar-links" id="navLinks">
             <li><a href="<?php echo e(url('/')); ?>">Beranda</a></li>
             <li><a href="<?php echo e(url('/tentang')); ?>" class="active">Tentang</a></li>
@@ -598,11 +601,11 @@
             <li><a href="<?php echo e(url('/layanan')); ?>">Layanan</a></li>
             <li><a href="<?php echo e(url('/syarat')); ?>">S&K</a></li>
             <li><a href="<?php echo e(url('/kontak')); ?>">Kontak Kami</a></li>
-
+            <li><a href="<?php echo e(url('/my-bookings')); ?>">Riwayat</a></li>
             <li>
-                <form method="POST" action="<?php echo e(route('logout')); ?>" class="inline">
+                <form method="POST" action="<?php echo e(route('logout')); ?>" style="display:inline">
                     <?php echo csrf_field(); ?>
-                    <button type="submit" class="btn-login" style="background:#374151;">Logout</button>
+                    <button type="submit" style="background:#374151;color:#fff;border:none;padding:8px 24px;border-radius:50px;font-weight:600;font-family:'Poppins',sans-serif;font-size:0.85rem;cursor:pointer">Logout</button>
                 </form>
             </li>
         </ul>
@@ -618,10 +621,10 @@
         <div class="hero-about-content">
             <div class="hero-about-text">
                 <h1>Tentang <span>Kami</span></h1>
-                <p>RenMobil adalah platform rental mobil terpercaya yang menyediakan layanan sewa kendaraan berkualitas dengan harga terjangkau. Kami berkomitmen memberikan pengalaman perjalanan terbaik untuk setiap pelanggan.</p>
+                <p>RennMobil adalah platform rental mobil terpercaya yang menyediakan layanan sewa kendaraan berkualitas dengan harga terjangkau. Kami berkomitmen memberikan pengalaman perjalanan terbaik untuk setiap pelanggan.</p>
             </div>
             <div class="hero-about-img">
-                <img src="<?php echo e(asset('images/about-car.jpg')); ?>" alt="RenMobil">
+                <img src="<?php echo e(asset('images/about-car.jpg')); ?>" alt="RennMobil">
             </div>
         </div>
     </section>
@@ -632,8 +635,8 @@
             <div class="tentang-grid">
                 <div>
                     <p class="section-label">TENTANG KAMI</p>
-                    <h2 class="section-title">Perjalanan Lebih Menyenangkan Bersama <span>RenMobil</span></h2>
-                    <p class="section-desc">Sejak didirikan, RenMobil telah melayani ribuan pelanggan dengan armada kendaraan yang terawat dan berkualitas. Kami menyediakan berbagai jenis mobil mulai dari MPV, SUV, Sedan, hingga minibus untuk memenuhi kebutuhan transportasi Anda.</p>
+                    <h2 class="section-title">Perjalanan Lebih Menyenangkan Bersama <span>RennMobil</span></h2>
+                    <p class="section-desc">Sejak didirikan, RennMobil telah melayani ribuan pelanggan dengan armada kendaraan yang terawat dan berkualitas. Kami menyediakan berbagai jenis mobil mulai dari MPV, SUV, Sedan, hingga minibus untuk memenuhi kebutuhan transportasi Anda.</p>
                     <br>
                     <p class="section-desc">Dengan tim profesional dan sistem pemesanan yang mudah, kami memastikan setiap perjalanan Anda menjadi pengalaman yang menyenangkan, aman, dan nyaman.</p>
                 </div>
@@ -714,53 +717,38 @@
 
             <div class="tim-grid">
                 <div class="tim-card">
-                    <img src="<?php echo e(asset('images/team-1.jpg')); ?>" alt="CEO" class="tim-img">
+                    <img src="<?php echo e(asset('images/team-1.jpeg')); ?>" alt="CEO" class="tim-img">
                     <div class="tim-info">
-                        <h4>Ahmad Rizki</h4>
-                        <p class="jabatan">CEO & Founder</p>
+                        <h4>Elisabeth Margaret Lumbantoruan</h4>
                         <div class="tim-socials">
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://wa.me/6283116498229?text=Hallo%20RennMobil"><i class="fab fa-whatsapp"></i></a>
+                            <a href="https://www.instagram.com/elisalumbantoruan_?igsh=MTBlaWVxcm15cHY2NA=="><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="tim-card">
-                    <img src="<?php echo e(asset('images/team-2.jpg')); ?>" alt="COO" class="tim-img">
+                    <img src="<?php echo e(asset('images/team-2.jpeg')); ?>" alt="COO" class="tim-img">
                     <div class="tim-info">
-                        <h4>Siti Nurhaliza</h4>
-                        <p class="jabatan">Chief Operating Officer</p>
+                        <h4>Kemulian Anggun br Rumapea</h4>
                         <div class="tim-socials">
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://wa.me/6281436103052?text=Hallo%20RennMobil"><i class="fab fa-whatsapp"></i></a>
+                            <a href="https://www.instagram.com/angggun_rumapea?igsh=aHZnNG9nbnh4dGp5"><i class="fab fa-instagram"></i></a>
+            
                         </div>
                     </div>
                 </div>
                 <div class="tim-card">
-                    <img src="<?php echo e(asset('images/team-3.jpg')); ?>" alt="CTO" class="tim-img">
+                    <img src="<?php echo e(asset('images/team-3.jpeg')); ?>" alt="CTO" class="tim-img">
                     <div class="tim-info">
-                        <h4>Budi Santoso</h4>
-                        <p class="jabatan">Chief Technology Officer</p>
+                        <h4>Nicol Savarola br Situmorang</h4>
                         <div class="tim-socials">
                             <a href="#"><i class="fab fa-facebook-f"></i></a>
                             <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://wa.me/6281338044279?text=Hallo%20RennMobil"><i class="fab fa-whatsapp"></i></a>
                         </div>
                     </div>
                 </div>
-                <div class="tim-card">
-                    <img src="<?php echo e(asset('images/team-4.jpg')); ?>" alt="CMO" class="tim-img">
-                    <div class="tim-info">
-                        <h4>Dewi Lestari</h4>
-                        <p class="jabatan">Head of Marketing</p>
-                        <div class="tim-socials">
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                </div>
+            
             </div>
         </div>
     </section>
@@ -786,11 +774,11 @@
     <!-- FOOTER -->
     <footer class="footer">
         <div class="footer-content">
-            <div class="footer-logo">RenMobil</div>
+            <div class="footer-logo">RennMobil</div>
             <p style="font-size: 0.9rem;">Penyedia jasa rental mobil terpercaya</p>
         </div>
         <div class="footer-bottom">
-            <p>&copy; <?php echo e(date('Y')); ?> RenMobil. All rights reserved.</p>
+            <p>&copy; <?php echo e(date('Y')); ?> RennMobil. All rights reserved.</p>
         </div>
     </footer>
 

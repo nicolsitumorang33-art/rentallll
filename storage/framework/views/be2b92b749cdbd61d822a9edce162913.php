@@ -1,4 +1,4 @@
-<?php $__env->startSection('title', 'Dashboard Admin - OREEN'); ?>
+<?php $__env->startSection('title', 'Dashboard Admin - RennMobil'); ?>
 <?php $__env->startSection('page-title', 'Dashboard Admin'); ?>
 <?php $__env->startSection('page-desc', 'Selamat datang kembali, ' . auth()->user()->name); ?>
 
@@ -79,13 +79,13 @@
     <div class="section-card">
         <h3><i class="fas fa-bolt" style="color:#e53935;margin-right:8px"></i> Aksi Cepat</h3>
         <div style="display:flex;flex-wrap:wrap;gap:10px">
-            <a href="#" onclick="event.preventDefault()" style="display:inline-flex;align-items:center;gap:8px;background:#e53935;color:#fff;padding:10px 22px;border-radius:50px;font-size:0.85rem;font-weight:600;text-decoration:none;transition:all 0.3s;font-family:'Poppins',sans-serif">
+            <a href="<?php echo e(route('admin.cars.create')); ?>" style="display:inline-flex;align-items:center;gap:8px;background:#e53935;color:#fff;padding:10px 22px;border-radius:50px;font-size:0.85rem;font-weight:600;text-decoration:none;transition:all 0.3s;font-family:'Poppins',sans-serif">
                 <i class="fas fa-plus"></i> Tambah Mobil
             </a>
-            <a href="#" onclick="event.preventDefault()" style="display:inline-flex;align-items:center;gap:8px;background:#1a1a2e;color:#fff;padding:10px 22px;border-radius:50px;font-size:0.85rem;font-weight:600;text-decoration:none;transition:all 0.3s;font-family:'Poppins',sans-serif">
+            <a href="<?php echo e(route('admin.bookings')); ?>" style="display:inline-flex;align-items:center;gap:8px;background:#1a1a2e;color:#fff;padding:10px 22px;border-radius:50px;font-size:0.85rem;font-weight:600;text-decoration:none;transition:all 0.3s;font-family:'Poppins',sans-serif">
                 <i class="fas fa-search"></i> Lihat Booking
             </a>
-            <a href="#" onclick="event.preventDefault()" style="display:inline-flex;align-items:center;gap:8px;background:#f5f5f5;color:#333;padding:10px 22px;border-radius:50px;font-size:0.85rem;font-weight:600;text-decoration:none;transition:all 0.3s;font-family:'Poppins',sans-serif;border:1px solid #e0e0e0">
+            <a href="<?php echo e(route('admin.reports')); ?>" style="display:inline-flex;align-items:center;gap:8px;background:#f5f5f5;color:#333;padding:10px 22px;border-radius:50px;font-size:0.85rem;font-weight:600;text-decoration:none;transition:all 0.3s;font-family:'Poppins',sans-serif;border:1px solid #e0e0e0">
                 <i class="fas fa-file-export"></i> Export Laporan
             </a>
         </div>

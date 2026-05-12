@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Galeri - RenMobil</title>
+    <title>Galeri - RennMobil</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -197,7 +197,7 @@
 
     <!-- NAVBAR -->
     <nav class="navbar">
-        <a href="{{ url('/') }}" class="navbar-logo">RenMobil</a>
+        <a href="{{ url('/') }}" class="navbar-logo">RennMobil</a>
         <ul class="navbar-links" id="navLinks">
             <li><a href="{{ url('/') }}">Beranda</a></li>
             <li><a href="{{ url('/tentang') }}">Tentang</a></li>
@@ -206,6 +206,7 @@
             <li><a href="{{ url('/layanan') }}">Layanan</a></li>
             <li><a href="{{ url('/syarat') }}">S&K</a></li>
             <li><a href="{{ url('/kontak') }}">Kontak Kami</a></li>
+            <li><a href="{{ url('/my-bookings') }}">Riwayat</a></li>
             <li>
                 <form method="POST" action="{{ route('logout') }}" class="inline" style="display:inline">
                     @csrf
@@ -222,7 +223,7 @@
     <section class="hero-galeri">
         <div class="hero-galeri-content">
             <h1>Galeri <span>Kami</span></h1>
-            <p>Momen terbaik perjalanan bersama pelanggan setia RenMobil</p>
+            <p>Momen terbaik perjalanan bersama pelanggan setia RennMobil</p>
         </div>
     </section>
 
@@ -230,7 +231,7 @@
     <section class="section">
         <div class="section-title">
             <h2>Galeri <span>Perjalanan</span></h2>
-            <p>Dokumentasi aktivitas dan momen kebersamaan dalam setiap perjalanan bersama RenMobil</p>
+            <p>Dokumentasi aktivitas dan momen kebersamaan dalam setiap perjalanan bersama RennMobil</p>
         </div>
         <div class="galeri-grid">
             <div class="galeri-card">
@@ -263,11 +264,11 @@
     <!-- FOOTER -->
     <footer class="footer">
         <div class="footer-content">
-            <div class="footer-logo">RenMobil</div>
+            <div class="footer-logo">RennMobil</div>
             <p style="font-size:0.9rem">Kepuasan Anda adalah prioritas kami</p>
         </div>
         <div class="footer-bottom">
-            <p>&copy; {{ date('Y') }} RenMobil. All rights reserved.</p>
+            <p>&copy; {{ date('Y') }} RennMobil. All rights reserved.</p>
         </div>
     </footer>
 

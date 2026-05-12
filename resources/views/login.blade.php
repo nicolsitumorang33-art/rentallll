@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login - RenMobil</title>
+    <title>Login - RennMobil</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -388,7 +388,8 @@
                         <label>Password</label>
                         <div class="input-wrapper">
                             <i class="fas fa-lock"></i>
-                            <input type="password" name="password" placeholder="Masukkan password" required>
+                            <input type="password" name="password" id="loginPassword" placeholder="Masukkan password" required>
+                            <span class="fas fa-eye toggle-pw" onclick="togglePW('loginPassword', this)" style="position:absolute;right:15px;top:50%;transform:translateY(-50%);cursor:pointer;color:#aaa"></span>
                         </div>
                     </div>
 
@@ -407,10 +408,24 @@
                 <div class="divider"><span>atau</span></div>
 
                 <p class="signup-link">
-                    Belum punya akun? <a href="#">Daftar Sekarang</a>
+                    Belum punya akun? <a href="{{ route('register') }}">Daftar Sekarang</a>
                 </p>
             </div>
         </div>
     </div>
+<script>
+    function togglePW(id, el) {
+        const input = document.getElementById(id);
+        if (input.type === 'password') {
+            input.type = 'text';
+            el.classList.remove('fa-eye');
+            el.classList.add('fa-eye-slash');
+        } else {
+            input.type = 'password';
+            el.classList.remove('fa-eye-slash');
+            el.classList.add('fa-eye');
+        }
+    }
+</script>
 </body>
 </html>

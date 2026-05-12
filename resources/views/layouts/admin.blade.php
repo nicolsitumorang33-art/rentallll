@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title', 'Admin - OREEN')</title>
+    <title>@yield('title', 'Admin - RennMobil')</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -290,7 +290,7 @@
     <!-- SIDEBAR -->
     <aside class="sidebar" id="sidebar">
         <div class="sidebar-brand">
-            <h2>OREEN</h2>
+            <h2>RennMobil</h2>
             <p>Admin Panel</p>
         </div>
         <nav class="sidebar-nav">
@@ -304,16 +304,16 @@
             </a>
             @endif
             <div class="sidebar-label">Management</div>
-            <a href="#" class="sidebar-item" onclick="event.preventDefault()">
+            <a href="{{ route('admin.cars') }}" class="sidebar-item {{ request()->routeIs('admin.cars') ? 'active' : '' }}">
                 <i class="fas fa-car"></i> Mobil
             </a>
-            <a href="#" class="sidebar-item" onclick="event.preventDefault()">
+            <a href="{{ route('admin.bookings') }}" class="sidebar-item {{ request()->routeIs('admin.bookings') ? 'active' : '' }}">
                 <i class="fas fa-calendar-check"></i> Booking
             </a>
-            <a href="#" class="sidebar-item" onclick="event.preventDefault()">
+            <a href="{{ route('admin.users') }}" class="sidebar-item {{ request()->routeIs('admin.users') ? 'active' : '' }}">
                 <i class="fas fa-users"></i> Pengguna
             </a>
-            <a href="#" class="sidebar-item" onclick="event.preventDefault()">
+            <a href="{{ route('admin.reports') }}" class="sidebar-item {{ request()->routeIs('admin.reports') ? 'active' : '' }}">
                 <i class="fas fa-file-alt"></i> Laporan
             </a>
         </nav>
